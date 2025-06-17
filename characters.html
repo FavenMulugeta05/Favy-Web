@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+    <meta charset="UTF-8" />
+      <title>Characters - Favy Web</title>
+
+      <meta name="characters" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet", href="characters.css"> <!--specifies identity as style sheet + link to css file-->
+    
+
+        <!-- here is where I will try to have my characters, maybe.. for mobile-->
+        
+    <body> 
+      
+      <nav class="navbar">
+        <div class="nav-spacer"></div> <!-- empty left spacer -->
+      
+        <div class="navbar-center">
+          <img src="../Portfolio/Portfolio_images/titlehead.png" class="titlehead" alt="Faven Mulugeta Header" />
+        </div>
+        
+
+        <img src="../Portfolio/comics/images/hamburger.png" alt="Menu" class="hamburger" id="hamburger" />
+
+        <div class="nav-links" id="mobileNav">
+          <a href="../Portfolio/artwork.html">
+            <img src="../Portfolio/files/illustration_button.png" alt="Home" class="button home" />
+          </a>
+
+          <a href="../Portfolio/Animation/animation.html">
+            <img src="../Portfolio/files/animation_button.png" alt="Animarion" class="button animation" />
+          </a>
+          <a href="../Portfolio/comics/comics.html">
+            <img src="../Portfolio/files/comics_title.png" alt="Comics" class="button comics" />
+          </a>
+
+         
+        </div>
+      </nav>
+
+
+        <img id="carousel" src="Frames/frame_01.png" width="600">
+
+      <div class="overlay">
+        <img src="Artwork/overlay.gif" alt="Character" class="character-overlay" />
+        <img src="Artwork/color_overlay.png" alt="Overlay" class="character-color" />
+      </div>
+
+      <div class="button-wrapper">
+        <button class="nav-button left"></button>
+        <button class="nav-button right"></button>
+      </div>
+      
+      
+
+
+      <div class="tv-page-wrapper">
+
+        <div class="tv-screen">
+          <div class="carousel-border">
+            <img id="carousel" src="Frames/frame_01.png" width="600">
+          
+          
+      
+        <!-- TV mockup frame overlays everything -->
+        <img src="Buttons/tv.png" alt="TV Frame" class="tv-frame" />
+
+        
+
+        <!-- BACKGROUND -->
+        <img src="Buttons/bg.png" alt="Background" class="bg-img" />
+    
+        <!-- FLOATING TOP ELEMENTS -->
+        <div class="top-elements">
+          <img src="Buttons/psst.png" alt="Psst Note" class="psst-note" />
+          <img src="Buttons/lighting.png" alt="Logo" class="logo" />
+        </div>
+    
+        <!-- TV SECTION (includes mockup + screen content) -->
+        <div class="tv-wrapper">
+    
+             <!-- TV mockup frame overlays everything -->
+        <img src="Buttons/tv.png" alt="TV Frame" class="tv-frame" />
+
+          <!-- Character elements (inside TV) -->
+          <div class="tv-screen">
+            <!-- Each slide could be JS-injected or pre-written -->
+
+            <!-- Add more slides here -->
+            <div class="character-slide active">
+              <img src="Buttons/cupid_title.png" alt="Cupid Name Title" class="character-title" />
+              <img src="Buttons/cupid_text.png" alt="Cupid Info" class="character-info" />
+            </div>
+    
+
+            <div class="character-slide active">
+              <img src="Buttons/iris_title.png" alt="Iris Name Title" class="character-title" />
+              <img src="Buttons/iris_text.png" alt="Iris Info" class="character-info" />
+            </div>
+    
+
+            <div class="character-slide active">
+              <img src="Buttons/marcel_title.png" alt="Mateo Name Title" class="character-title" />
+              <img src="Buttons/marcel_text.png" alt="Mateo Info" class="character-info" />
+            </div>
+
+            <div class="character-slide active">
+              <img src="Buttons/mateo_title.png" alt="Mateo Name Title" class="character-title" />
+              <img src="Buttons/mateo_text.png" alt="Mateo Info" class="character-info" />
+            </div>
+    
+    
+            <!-- <div class="character-slide">...</div> -->
+          </div>
+    
+          <!-- Carousel nav buttons -->
+          <div class="carousel-nav">
+            <button class="prev-btn">⏴</button>
+            <button class="next-btn">⏵</button>
+          </div>
+    
+        </div>
+
+
+
+    </body>
+    
+    
+    
+    <script>
+  
+      // ====== SETUP ======
+
+const carousel = document.getElementById('carousel');
+
+const turns = [
+  {
+    frames: getFrameRange(2, 14),
+    pause: "frame_14.png",
+    pauseBack: "frame_01.png"
+  },
+  {
+    frames: getFrameRange(15, 27),
+    pause: "frame_27.png",
+    pauseBack: "frame_14.png"
+  },
+  {
+    frames: getFrameRange(27, 42),
+    pause: "frame_42.png",
+    pauseBack: "frame_27.png"
+  },
+  {
+    frames: getFrameRange(43, 57),
+    pause: "frame_01.png",
+    pauseBack: "frame_42.png"
+  }
+];
+
+let currentTurn = 0;
+let isPlaying = false;
+
+// ====== HELPERS ======
+
+function getFrameRange(start, end) {
+  let result = [];
+  for (let i = start; i <= end; i++) {
+    const padded = String(i).padStart(2, '0');
+    result.push(`frames/frame_${padded}.png`);
+  }
+  return result;
+}
+
+// FORWARD ROTATION 
+
+function rotate() {
+  if (isPlaying) return;
+  isPlaying = true;
+
+  const { frames, pause } = turns[currentTurn];
+  let i = 0;
+
+  const interval = setInterval(() => {
+    if (i >= frames.length) {
+      clearInterval(interval);
+      carousel.src = `frames/${pause}`;
+      currentTurn = (currentTurn + 1) % turns.length;
+      isPlaying = false;
+      return;
+    }
+
+    carousel.src = frames[i];
+    i++;
+  }, 1000 / 24);
+}
+
+// BACKWARD ROTATION 
+
+function rotateBack() {
+  if (isPlaying) return;
+  isPlaying = true;
+
+  const newTurn = (currentTurn - 1 + turns.length) % turns.length;
+  const { frames, pauseBack } = turns[newTurn];
+  let i = frames.length - 1;
+
+  const interval = setInterval(() => {
+    if (i < 0) {
+      clearInterval(interval);
+      carousel.src = `frames/${pauseBack}`;
+      currentTurn = newTurn;
+      isPlaying = false;
+      return;
+    }
+    carousel.src = frames[i];
+    i--;
+  }, 1000 / 24);
+}
+
+// BUTTON LISTENERS 
+
+document.querySelector('.nav-button.left').addEventListener('click', rotate);      // forward
+document.querySelector('.nav-button.right').addEventListener('click', rotateBack); // backward
+
+          // HAMBURGA 
+
+            const hamburger = document.getElementById("hamburger");
+            const mobileNav = document.getElementById("mobileNav");
+
+            hamburger.addEventListener("click", () => {
+            mobileNav.classList.toggle("active");
+
+            });
+
+</script> 
+</html>

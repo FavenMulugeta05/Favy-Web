@@ -1,0 +1,295 @@
+button, a {
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto !important;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body  {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+}
+
+
+/* NAVBAR LAYOUT */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 30px;
+  background: rgba(190, 143, 190, 0.4);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+/* CENTER TITLE LOGO */
+.navbar-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.titlehead {
+  height: 60px; /* adjust size as needed */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* NAV BUTTONS ON RIGHT */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* NAV BUTTON IMAGES */
+.button {
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+}
+.nav-button,
+.nav-button:hover,
+.nav-button:active,
+.nav-button:focus {
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+}
+
+.nav-links a:hover .button {
+  transform: scale(1.07);
+  filter: brightness(1.1);
+}
+
+.carousel-border {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#carousel {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* OVERLAYS */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.character-overlay,
+.character-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+.character-overlay {
+  z-index: 9;
+  mix-blend-mode: multiply;
+  opacity: 0.1;
+}
+
+.character-color {
+  z-index: 10;
+  mix-blend-mode: multiply;
+  opacity: 0.2;
+}
+
+/* BUTTONS FOR CAROUSEL ROTATION */
+.button-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.nav-button {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 10px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  pointer-events: auto;
+  z-index: 10;
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+}
+
+.nav-button.left {
+  left: 50px;
+  background-image: url('Buttons/left_dark.png');
+}
+
+.nav-button.left:hover {
+  transform: translateY(-50%) scale(1.05);
+  filter: brightness(1.1);
+}
+
+.nav-button.right {
+  right: 0px;
+  background-image: url('Buttons/right_dark.png');
+}
+
+.nav-button.right:hover {
+  transform: translateY(-50%) scale(1.05);
+  filter: brightness(1.1);
+}
+
+
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+}
+
+
+
+  
+
+
+@media (max-width: 1250px) {
+
+
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      background: rgba(190, 143, 190, 0.4);
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(190, 143, 190, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 2100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      width: 20px;
+      cursor: pointer;
+      z-index: 2101;
+    }
+
+  .banner-text {
+    transform: scale(0.75); /* shrink everything uniformly */
+    top: 15%;               /* adjust vertical position */
+    left: 2%;               /* adjust horizontal position */
+    transform-origin: top left; /* so it scales from top left corner */
+  }
+
+  .page-wrapper {
+    padding-top: 50px;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+
+  .carousel-border {
+    width: 100vw;
+    max-width: 800px;
+    margin: 0 auto; /* center horizontally */
+    margin-top: 10vh; /* push it down slightly */
+    background-color: rgb(205, 138, 171);
+    background-color: rgb(205, 138, 171);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #carousel {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      background: rgba(190, 143, 190, 0.4);
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(190, 143, 190, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 2100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      width: 30px;
+      cursor: pointer;
+      z-index: 2101;
+    }
+
+  
+
+
+
+
+/* THIS IS JUST FOR ABOUT BUTTON !!!! */
+.nav-button {
+  width: 150px;
+  z-index: 1002;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+
+}
+}
+
