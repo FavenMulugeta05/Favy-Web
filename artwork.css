@@ -1,0 +1,614 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
+  background-color: rgb(205, 138, 171);
+}
+
+.section-art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto; /* centers the content */
+}
+
+.page-wrapper {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px; /* space between sections, can be adjusted */
+  padding-top: 400px; /* or add space if your navbar is fixed */
+}
+
+.hero-banner {
+  
+  width: 100vw;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: auto; /* maintains image's original aspect ratio */
+  display: block;
+}
+
+
+.titlehead {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  cursor: url("images/heartcursor.png"), auto;
+}
+
+.hero-banner img {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Group for title + bio text */
+
+
+.banner-text {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2; /* make sure it's above the banner image */
+}
+
+.banner-title {
+max-width: 600px;
+width: 100%;
+}
+
+.banner-bio {
+max-width: 500px;
+width: 90%;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 30px;
+  background: rgba(204, 127, 149, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-sizing: border-box;
+  overflow-x: auto; /* optional: lets it scroll if it's ever too wide */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;         /* Space between buttons */
+  margin-right: 50px;
+}
+
+.bottom-right-button {
+  position: fixed;
+  bottom: 20px;     /* distance from bottom edge */
+  right: 20px;      /* distance from right edge */
+  transform: none;  /* remove translateY */
+  z-index: 10;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.bottom-right-button:hover {
+  transform: scale(1.05); /* just scaling, no translate */
+  filter: brightness(1.1);
+}
+
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+}
+
+  
+
+
+/* THIS IS JUST FOR ABOUT BUTTON !!!! */
+.nav-button {
+  width: 200px;
+  z-index: 1002;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+
+}
+
+.navlink {
+  text-decoration: none;
+}
+
+
+
+
+
+.nav-links img.button {
+  height: 40px;    /* Or try 24px */
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-button img {
+  height: 24px;     /* Try smaller, like 24px or 28px */
+  width: auto;      /* Keeps proportions */
+  object-fit: contain;
+}
+
+  .nav-button,
+  .nav-button:hover,
+  .nav-button:active,
+  .nav-button:focus {
+    cursor: url('../Portfolio_images/heartcursor.png'), auto;
+  }
+  
+  .nav-links a:hover .button {
+    transform: scale(1.07);
+    filter: brightness(1.1);
+  }
+
+
+/* ARTWORK */
+
+
+.outer-art {
+  margin-bottom: 0px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  width: 100vw;
+  min-height: 100vh;
+  scroll-snap-type: x mandatory;
+  align-items: center;
+  z-index: 5;
+}
+ 
+
+.inner-art {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+
+.artbox {
+  width: 600px;
+  height: 600px;
+  margin: 0 30px; /* horizontal spacing between boxes */
+  background-color: rgb(243, 202, 198);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.artbox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the square and crops edges if needed */
+  border-radius: 40px; /* Optional: if you want the image itself rounded too */
+}
+
+/* GENERAL CSS CAROSEL */
+
+.box {
+  width: 25vw;
+  max-width: 800px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 90px; /*  space between boxes */
+  margin-left: 40px;  /*  ....optional padding at the start */
+}
+
+.video-info img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.video-container {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 20px rgba(158, 102, 134, 0.475);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  object-fit: cover;
+  display: block;
+}
+
+.video-info {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-info img {
+  max-height: 40px;
+  object-fit: contain;
+}
+
+/* floating header above carousel */
+
+.header-group {
+  position: relative;
+  display: flex;
+  justify-content: flex-start; /* or center */
+  width: 100%;
+  z-index: 10;
+}
+
+.title-img {
+  max-width: 100%;
+  position: relative;
+  left: 3%; /* shared left offset */
+  display: block;
+}
+
+/* Move INDIVIDUAL headers */
+.warner-title,
+.indie-title {
+  position: static; /* make them behave like normal flow items */
+  margin-bottom: 30px;
+  margin-top: 0px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.warner-title {
+  max-width: 700px;
+}
+
+/* INDEPENDENT ARTISTS */
+
+.outer-independent {
+  margin-top: 0px;
+  position: relative; /* Needed to anchor absolute children */
+  display: flex;
+  flex-direction: row; /* horizontal scrolling stays */
+  overflow-x: auto;
+  width: 100vw;
+  min-height: 100vh;
+  scroll-snap-type: x mandatory;
+  align-items: center;
+  z-index: 5;
+}
+
+.inner-independent {
+width: 30%;
+display: flex;
+flex-wrap: nowrap;
+width: max-content;
+}
+
+/* Scrollbar width */
+
+
+/* Background (track) */
+::-webkit-scrollbar-track {
+  background-color: rgb(205, 138, 171);; /* same as your body */
+}
+
+/* Scrollbar thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(205, 138, 171);;
+  border-radius: 10px;
+}
+
+/* Optional: on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(205, 138, 171);;
+}
+
+
+a,
+button,
+.nav-button,
+.nav-button:hover,
+.nav-links a,
+.nav-links a:hover,
+.video-info,
+.video-info:hover {
+  cursor: url("Portfolio_images/heartcursor.png"), auto;
+}
+
+
+html, body, * {
+  cursor: url("Portfolio_images/heartcursor.png"), auto !important;
+}
+
+a, button, input, textarea, select, label, img, 
+.nav-button, .nav-links a, .hamburger, .bottom-right-button, 
+.video-container, .artbox, .box, .title-img, .navlink {
+  cursor: url("Portfolio_images/heartcursor.png"), auto !important;
+}
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Tablets and medium screens */
+/* ==== MEDIA QUERIES ==== */
+
+/* Tablets */
+@media (max-width: 1200px) {
+
+  .banner-text {
+    transform: scale(0.80); /* shrink everything uniformly */
+    top: 15%;               /* adjust vertical position */
+    left: 2%;               /* adjust horizontal position */
+    transform-origin: top left; /* so it scales from top left corner */
+  }
+
+  .page-wrapper {
+    padding-top: 200px;
+  }
+}
+
+@media (max-width: 1100px) {
+
+
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      background: rgba(204, 127, 149, 0.4);
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(204, 127, 149, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 2100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      width: 30px;
+      cursor: pointer;
+      z-index: 2101;
+    }
+
+  .banner-text {
+    transform: scale(0.75); /* shrink everything uniformly */
+    top: 15%;               /* adjust vertical position */
+    left: 2%;               /* adjust horizontal position */
+    transform-origin: top left; /* so it scales from top left corner */
+  }
+
+  .page-wrapper {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      background: rgba(204, 127, 149, 0.4);
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(204, 127, 149, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 1100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      width: 30px;
+      cursor: pointer;
+      z-index: 1101;
+    }
+
+  .page-wrapper {
+    padding-top: -10px;
+  }
+
+  .box {
+    width: 30vw;
+  }
+}
+
+
+@media (max-width: 850px) {
+
+
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      background: rgba(204, 127, 149, 0.4);
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(204, 127, 149, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 2100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      width: 30px;
+      cursor: pointer;
+      z-index: 2101;
+    }
+    
+  .page-wrapper {
+    padding-top: -30px;
+  }
+
+  .box {
+    width: 35vw;
+  }
+}
+
+
+
+
+/* Small tablets and large phones */
+@media (max-width: 800px) {
+
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      background: rgba(204, 127, 149, 0.4);
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(204, 127, 149, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 2100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      width: 30px;
+      cursor: pointer;
+      z-index: 2101;
+    }
+
+  .banner-text {
+    transform: scale(0.60); /* shrink everything uniformly */
+    top: 15%;               /* adjust vertical position */
+    left: 2%;               /* adjust horizontal position */
+    transform-origin: top left; /* so it scales from top left corner */
+  }
+
+  .header-group {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    justify-content: center;
+  }
+
+  .warner-title,
+  .indie-title {
+    margin: 0 auto 0px;
+    max-width: 450px;
+    text-align: center;
+  }
+
+  .page-wrapper {
+    padding-top: 0px;
+    gap: 0px;
+  }
+
+  .section-art {
+    padding: 0 0px;
+  }
+
+  .artbox {
+    width: 350px;
+    height: 350px;
+    margin: 5px;
+  }
+
+  .outer-art,
+  .outer-independent {
+    padding: 0px 0;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .inner-art,
+  .inner-independent {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+  }
+
+
+
+
+/* THIS IS JUST FOR ABOUT BUTTON !!!! */
+.nav-button {
+  width: 150px;
+  z-index: 1002;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+
+}
+}
+
