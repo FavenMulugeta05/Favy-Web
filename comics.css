@@ -1,0 +1,397 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: rgb(230, 181, 204)
+  }
+  
+  body {
+    padding: 0; /* Adjust based on navbar height */
+    margin: 0;
+    display: block; /* Remove grid center */
+    overflow-y: auto; /* Let it scroll again */
+    overflow-x: hidden;
+    background-color: rgb(230, 181, 204);
+  }
+  
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(204, 127, 149, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-sizing: border-box;
+    overflow-x: auto; /* optional: lets it scroll if it's ever too wide */
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;         /* Space between buttons */
+    margin-right: 50px;
+  }
+  
+  .nav-links img.button {
+    height: 40px;    /* Or try 24px */
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .nav-button img {
+    height: 24px;     /* Try smaller, like 24px or 28px */
+    width: auto;      /* Keeps proportions */
+    object-fit: contain;
+  }
+  
+  .titlehead {
+    height: 60px; /* adjust as needed */
+    object-fit: contain;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Hamburger hidden on desktop */
+.hamburger {
+    display: none;
+  }
+
+.comic-header {
+    padding-left: 20px;
+    padding-top:  70px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start; /* or center */
+    width: 40%;
+    z-index: 10;
+  
+}
+
+
+.book-outer {
+    box-sizing: border-box;
+    display: flex;
+    overflow-x: auto;
+    padding: 5px 5px; /* top/bottom, left/right */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .book-inner {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    position: relative; /* THIS is what was likely missing */
+    width: 100vw;
+    max-width: 1080px;
+    height: auto;
+  }
+  
+
+  .flipbook {
+    width: 100%;
+    max-width: 1000px;
+    height: 550px; /* or whatever height looks good */
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .page {
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c88686; /* clean background to avoid flashes */
+  }
+  
+  .page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'fill' depending on layout */
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* CHIBI BG (left side, under book) */
+.chibi-bg {
+    position: absolute;
+    padding-top: 25px;          /* or use top: [value] if you want it higher */
+    width: 450px;
+    height: 500px;
+    z-index: 1;          /* lower than flipbook */
+    pointer-events: none;
+  }
+  
+  /* CHIBI TEXT (right side, under book) */
+  .chibi-text {
+    position: absolute;
+    bottom: 0;           /* aligns vertically with chibi-bg */
+    right: 0;
+    width: auto;
+    height: 700px;
+    z-index: 1;
+    pointer-events: none;
+  }
+ 
+
+
+
+ /* ==================================================== MOBILE LAYOUT MOBILE LAYOUT ======================================================== */
+
+ .outer-couple,
+ .outer-park,
+ .outer-spike {
+   position: relative;
+   display: flex;
+   flex-direction: row;
+   overflow-x: auto;
+   scroll-snap-type: x mandatory;
+   align-items: center;
+   padding-top: 40px;
+   width: 100vw;
+   min-height: 100vh;
+   z-index: 5;
+ }
+ 
+ .outer-couple {
+   margin-top: 300px;
+   bottom: 20%;
+ }
+ 
+ .inner-couple,
+ .inner-park,
+ .inner-spike {
+   display: flex;
+   flex-wrap: nowrap;
+   width: max-content;
+ }
+ 
+ /* ======= BOXES FOR IMAGES ======= */
+ 
+ .box {
+   width: 25vw;
+   max-width: 800px;
+   min-width: 280px;
+   flex-shrink: 0;
+   scroll-snap-align: center;
+   border-radius: 10px;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 90px;
+   margin-left: 40px;
+ }
+ 
+ /* ======= IMAGE STYLES ======= */
+ 
+ .coupleimg,
+ .parkimg,
+ .spikeimg {
+   width: 100%;
+   height: auto;
+   object-fit: contain;
+   display: block;
+ }
+ 
+ /* ======= HEADER IMAGE GROUP ======= */
+ 
+ .header-group {
+   position: relative;
+   display: flex;
+   justify-content: flex-start;
+   width: 100%;
+   z-index: 10;
+   margin-bottom: -20px; /* reduce awkward spacing on desktop */
+ }
+ 
+ .title-img {
+   max-width: 100%;
+   width: auto;
+   height: auto;
+   position: relative;
+   left: 3%;
+   display: block;
+ }
+ 
+ .couple-title,
+ .park-title,
+ .spike-title {
+   max-width: 100%;
+   padding-top: 70px;
+ }
+ 
+ .hamburger {
+    width: 40px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+  }
+
+
+  /* 🌸 GLOBAL HEART CURSOR — COMIC PAGE EDITION 🌸 */
+html, body, * {
+  cursor: url('../Portfolio_images/heartcursor.png'), auto !important;
+}
+
+a, button, input, textarea, select, label, img, 
+.nav-button, .nav-links a, .hamburger, .comic-header, 
+.flipbook, .page img, .box, .title-img {
+  cursor: url('../Portfolio_images/heartcursor.png'), auto !important;
+}
+
+  @media screen and (max-width: 1500px) {
+     /* Hide desktop content */
+     .desktop-comic {
+      display: block;
+    }
+  
+    /* Show mobile-specific layout if it's hidden by default */
+    .mobile-group {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1049px) {
+    /* Hide desktop content */
+    .desktop-comic {
+      display: none;
+    }
+  
+    /* Show mobile-specific layout if it's hidden by default */
+    .mobile-group {
+      display: block;
+    }
+  
+    /* Comic header */
+    .comic-header {
+      width: 80%;
+      padding-left: 10px;
+      padding-top: 80px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+  
+    /* Flipbook container layout */
+    .book-outer {
+      padding: 0;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .book-inner {
+      width: 100vw;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+  
+    .flipbook {
+      max-width: 90vw;
+      height: auto;
+      aspect-ratio: 10 / 7;
+      border-radius: 12px;
+    }
+  
+    .page img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  
+    /* Hide chibi decorations */
+    .chibi-bg,
+    .chibi-text {
+      display: none;
+    }
+  
+    /* Navigation (mobile toggle menu) */
+    .navbar {
+      overflow: visible;
+      padding: 10px 20px;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(204, 127, 149, 0.4);
+      flex-direction: column;
+      padding: 12px 16px;
+      border-radius: 10px;
+      z-index: 1100;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      padding-right: 10px;
+      display: block;
+      width: 40px;
+      cursor: pointer;
+      z-index: 1101;
+    }
+  
+    /* Comic strip layout */
+    .outer-couple,
+    .outer-park,
+    .outer-spike {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      margin: 0 auto;
+      padding: 0;
+      width: 100vw;
+    }
+  
+    .inner-couple,
+    .inner-park,
+    .inner-spike {
+      display: flex;
+      gap: 16px;
+      margin: 0;
+      padding-bottom: 20px;
+    }
+  
+    .box {
+      min-width: 90vw;
+      max-width: 95vw;
+      margin: 0 auto;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+  
+    .box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+  
+    .header-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+  
+
+  }

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animation - Favy Web</title>
+    <meta name="Portfolio" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet", href="animation.css"> <!--specifies identity as style sheet + link to css file--->
+
+  </head>
+
+    <body>
+      <nav class="navbar">
+        <div class="nav-spacer"></div> <!-- empty left spacer -->
+          <div class="navbar-center">
+            <img src="../Portfolio_images/titlehead.png" class="titlehead" alt="Faven Mulugeta Header" />
+          </div>
+          <img src="../comics/images/hamburger.png" alt="Menu" class="hamburger" id="hamburger" />
+
+        <div class="nav-links" id="mobileNav">
+          <a href="../artwork.html">
+            <img src="../files/illustration_button.png" alt="back" class="button back" />
+          </a>
+          <a href="../comics/comics.html">
+            <img src="../files/comics_title.png" alt="comics" class="button comics" />
+          </a>
+          <a href="../../Characters/characters.html">
+            <img src="../files/characters_button.png" alt="characters" class="button editorial" />
+          </a>
+        </div>
+
+      </nav>
+
+        <!-- animation -->
+    
+
+
+    <div class="outer">
+      <div class="inner">
+        <div class="box">
+          <video src="files/train.mp4" class="animation train" controls></video>
+        
+          <div class="video-info">
+            <img class="train text" src="images/train_text.png" alt="Train title" />
+        
+            <button class="modal-button" data-video="files/train.mp4">
+              <img class="train button" src="images/question.png" alt="More info" />
+            </button>
+          </div>
+        </div>
+
+
+
+          </div>
+          <div class="box">
+            <video src="files/skating.mp4" class='animation skate' controls></video>
+            
+            <div class="video-info">
+              <img class="skating text" src="images/skating_text.png" alt="Skating title" />
+          
+              <button class="modal-button" data-video="files/skating.mp4">
+                <img class="skating button" src="images/question.png" alt="More text" />
+              </button>
+
+            </div>
+          </div>
+          <div class="box">
+            <video src="files/heavy.mp4" class='animation heavy' controls></video> 
+              
+            <div class="video-info">
+                <img class="heavy text" src="images/heavy_text.png" alt="Heavy title" />
+            
+                <button class="modal-button" data-video="files/heavy.mp4">
+                  <img class="heavy button" src="images/question.png" alt="More text" />
+                </button>
+
+              </div>
+          </div>
+          <div class="box">
+            <video src="files/puppy.mp4" class='animation puppy' controls></video>            
+            
+            <div class="video-info">
+              <img class="puppy text" src="images/puppy_text.png" alt="puppy title" />
+          
+              <button class="modal-button" data-video="files/puppy.mp4">
+                <img class="puppy button" src="images/question.png" alt="More text" />
+              </button>
+
+            </div>
+
+          </div>
+          <div class="box">
+            <video src="files/walking.mp4" class='animation walking' controls></video>            
+            
+            <div class="video-info">
+              <img class="walking text" src="images/walking_text.png" alt="walking title" />
+          
+              <button class="modal-button" data-video="files/walking.mp4">
+                <img class="walking button" src="images/question.png" alt="More text" />
+              </button>
+            </div>
+          </div>
+          <div class="box">
+
+          </div>
+      </div>
+  </div>
+
+
+  
+      
+      <div id="modal" class="modal hidden">
+        <div class="modal-overlay">
+          <img src="images/overlay.gif" class="overlay-gif" />
+        </div>
+      
+        <div class="modal-content">
+          <img class="info-image" src="" alt="modal info" />
+        </div>
+        <button class="xmark">
+          <img src="images/xmark.png" id="closeModal" class="x-mark" />
+        </button>
+      </div>
+      
+
+
+    
+    </body>
+
+</html>
+
+<script>
+
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+
+  hamburger.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+
+});
+
+const modal = document.getElementById("modal");
+  const infoImage = modal.querySelector(".info-image");
+  const closeBtn = document.getElementById("closeModal");
+  const overlay = document.querySelector(".modal-overlay");
+  const modalButtons = document.querySelectorAll(".modal-button");
+
+  // When a modal button is clicked
+  modalButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const videoSrc = button.getAttribute("data-video");
+      const baseName = videoSrc.split('/').pop().split('.')[0]; // <- put this back too!
+      const imageSrc = `images/${baseName}_info.png`; 
+
+
+      
+      infoImage.src = imageSrc;
+      modal.classList.remove("hidden");
+
+      // Optional: add fade-in class if using CSS transitions
+      modal.classList.add("fade-in");
+      modal.classList.remove("fade-out");
+    });
+  });
+
+  // Close modal by X button
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    infoImage.src = "";
+  });
+
+  // Close modal by clicking overlay
+  overlay.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    infoImage.src = "";
+  });
+
+
+  closeBtn.addEventListener("click", () => {
+  modal.classList.add("fade-out");
+  modal.classList.remove("fade-in");
+
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("fade-out");
+    infoImage.src = "";
+  }, 500); // match this with your CSS transition time
+
+
+
+  
+});
+</script>
