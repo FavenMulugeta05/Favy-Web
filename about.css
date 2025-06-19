@@ -1,0 +1,583 @@
+
+  
+  .button {
+    height: 40px;        /* ↓ reduced from 80px */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    margin: 0 10px;
+    image-rendering: auto;
+  }
+  
+  /* Hover effect */
+  .button:hover {
+    transform: scale(1.07);    /* slight lift */
+    filter: brightness(1.1);   /* subtle glow */
+    cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+  }
+  
+  /* NAVBAR LAYOUT */
+  .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 30px;
+  background: rgba(204, 127, 149, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  }
+  
+  /* CENTER TITLE LOGO */
+  .navbar-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .titlehead {
+  height: 60px; /* adjust size as needed */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  }
+  
+  /* NAV BUTTONS ON RIGHT */
+  .nav-links {
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  }
+
+/* Background Image */
+         
+body {
+  background-image: url('aboutimages/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; /* makes it scroll! */
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+  
+
+  .background-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Contact Title */
+  .about-title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-title img {
+    width: 450px;
+    height: auto;
+  }
+  
+  /* Flex container for top section */
+  .about-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* or however tall you want the section */
+    overflow: visible;
+  }
+  
+  /* Favy Image */
+  .favy-img {
+    z-index: 5;
+    position: absolute;
+    right: 930px;
+    top: 50px;
+  }
+  
+  .favy-img img {
+    max-width: 600px;
+    height: auto;
+  }
+  
+  .info-img {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  
+  
+  .info-img img {
+    max-width: 700px;
+    height: auto;
+  }
+  
+  .flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+  
+  /* Left flower (bottom left corner) */
+  .flower-left {
+    position: absolute;
+    left: 0;
+    top: 700px;
+    max-width: 400px;
+  }
+  
+
+  
+  /* Contact Title */
+  .contact-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 140px;
+  }
+  
+  .contact-title img {
+    width: 400px;
+    height: auto;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+    cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+  }
+
+
+  /* Form Section */
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    margin-bottom: 200px;
+    padding-top: 0; /* Removes unnecessary top padding */
+  }
+
+  
+  form {
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* spacing between title, socials, and form */
+    margin-top: 100px; /* adjust as needed */
+  }
+  
+  .social-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .social-icon {
+    height: 60px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+    cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto;
+  }
+
+  .text {
+    padding: 20px 20px;
+    max-height: 30px;
+  }
+  .row,
+  .message-area {
+    margin-bottom: 20px;
+  }
+  
+  label img {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input.input-lg,
+  textarea.message {
+    width: 100%;
+    padding: 15px 15px; /* <-- fixed! */
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    box-shadow: inset 0 4px 4px rgba(247, 166, 188, 0.167);
+    box-sizing: border-box; /* ensures padding doesn't squish width */
+  }
+
+  textarea.message {
+    min-height: 250px;
+    resize: vertical;
+  }
+
+  
+    /* Hamburger hidden on desktop */
+  .hamburger {
+    display: none;
+  }
+
+  textarea.message {
+    min-height: 200px;
+    resize: vertical;
+  }
+  
+  /* Submit button */
+  .button-bar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+  }
+
+  .btn-dark {
+    padding-right: 190px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    max-height: 70px;
+    display: inline-block;
+    
+  }
+  
+  .btn-dark img {
+    height: 100%;
+    max-height: 70px;
+    width: auto;
+    display: block;
+  }
+  
+  .btn-dark:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+  
+  
+  .social-icon {
+    height: 40px;
+    width: auto;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  /* GLOBAL HEART CURSOR ENFORCEMENT */
+html, body, * {
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto !important;
+}
+
+a, button, label, input, textarea, select, img, .btn-dark, .button, .nav-button, .social-icon, .hamburger {
+  cursor: url('../Portfolio/Portfolio_images/heartcursor.png'), auto !important;
+}
+
+  /* Tablet: 400px to 1049px */
+@media screen and (min-width: 1099px) and (max-width: 1432px) {
+  .button {
+    height: 45px;
+    margin: 0 6px;
+  }
+
+  .navbar {
+    padding: 8px 16px;
+  }
+
+  .titlehead {
+    height: 48px;
+  }
+
+  .about-title img,
+  .contact-title img {
+    width: 300px;
+  }
+
+  
+  .favy-img {
+    z-index: 5;
+    position: absolute;
+    right: 500px;
+    top: 70px;
+  }
+
+  .favy-img img {
+    max-width: 400px;
+  }
+
+  .info-img img {
+    padding-bottom: 90px;
+    max-width: 580px;
+  }
+
+  .flower-left {
+    position: absolute;
+
+    top: 450px;
+    max-width: 400px;
+  }
+
+
+
+    /* Flex container for top section */
+    .about-container {
+      position: relative;
+      width: 70%;
+      height: 70vh; /* or however tall you want the section */
+      overflow: visible;
+    }
+
+
+
+  .btn-dark img {
+    max-height: 60px;
+  }
+}
+
+
+
+
+
+  /* Tablet: 400px to 1049px */
+@media screen and (min-width: 790px) and (max-width: 1100px) {
+  
+   /* Navigation (mobile toggle menu) */
+   .navbar {
+    background: rgba(204, 127, 149, 0.2);
+    overflow: visible;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(204, 127, 149, 0.2);
+    flex-direction: column;
+    padding: 12px 16px;
+    border-radius: 10px;
+    z-index: 1100;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    padding-right: 50px;
+    display: block;
+    width: 30px;
+    cursor: pointer;
+    z-index: 1101;
+  }
+
+  
+  .button {
+    height: 36px;
+    margin: 0 6px;
+  }
+
+  .navbar {
+    padding: 8px 16px;
+  }
+
+  .titlehead {
+    height: 48px;
+  }
+
+  .about-title img,
+  .contact-title img {
+    width: 250px;
+  }
+
+  .about-title {
+
+    padding-top: 50px;
+  }
+
+  .contact-title {
+
+    bottom: 100px;
+  }
+
+  .favy-img {
+    position: absolute;
+    top: 40px; /* adjust as needed */
+    left: -15%;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+  
+  .favy-img img {
+    max-width: 350px; /* scale responsively */
+    height: auto;
+  }
+ 
+
+  .info-img img {
+    padding-bottom: 90px;
+    max-width: 550px;
+  }
+
+  .flower-left {
+    position: absolute;
+
+    top: 450px;
+    max-width: 250px;
+  }
+
+  .flower-right {
+    top: 1300px;
+    max-width: 220px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+    /* Flex container for top section */
+    .about-container {
+      position: relative;
+      width: 70%;
+      height: 70vh; /* or however tall you want the section */
+      overflow: visible;
+    }
+
+  .container {
+    padding: 30px 15px;
+  }
+
+  .btn-dark img {
+    max-height: 60px;
+  }
+}
+
+ /* Mobile: max 599px */
+@media screen and (max-width: 789px) {
+
+
+
+   /* Navigation (mobile toggle menu) */
+   .navbar {
+    background: rgba(204, 127, 149, 0.2);
+    overflow: visible;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(204, 127, 149, 0.2);
+    flex-direction: column;
+    padding: 12px 16px;
+    border-radius: 10px;
+    z-index: 1100;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    padding-right: 50px;
+    display: block;
+    width: 30px;
+    cursor: pointer;
+    z-index: 1101;
+  }
+
+  .button {
+    height: 30px;
+    margin: 0 4px;
+  }
+
+  .navbar {
+    padding: 6px 12px;
+  }
+
+  .titlehead {
+    height: 42px;
+  }
+
+  .contact-title img {
+    width: 200px;
+  }
+
+
+  .about-title img{
+    width: 250px;
+  }
+
+  .contact-title {
+    padding-bottom: 100px;
+  }
+
+   
+  .favy-img {
+    position: absolute;
+    top: 120px; /* adjust as needed */
+    left: -15%;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+  
+  .favy-img img {
+    max-width: 250px; /* scale responsively */
+    height: auto;
+  }
+ 
+  .info-img img {
+    padding-bottom: 140px;
+    max-width: 80vw;
+  }
+
+  .flower-left {
+    top: 400px;
+    max-width: 150px;
+  }
+
+  .flower-right {
+    top: 1050px;
+    max-width: 180px;
+  }
+
+ 
+  .about-container {
+    position: relative;
+    width: 70%;
+    height: 70vh;
+    overflow: visible;
+  }
+
+
+  .btn-dark img {
+    max-height: 50px;
+  }
+}

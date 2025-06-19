@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>About Me - Favy Web</title>
+        <meta name="About" content="HTML" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="about.css" />
+      </head>
+
+    <body>
+       
+        <nav class="navbar">
+            <div class="nav-spacer"></div> <!-- empty left spacer -->
+          
+            <div class="navbar-center">
+              <img src="../Portfolio/Portfolio_images/titlehead_dark.png" class="titlehead" alt="Faven Mulugeta Header" />
+            </div>
+
+            <img src="../Portfolio/comics/images/hamburger.png" alt="Menu" class="hamburger" id="hamburger" />
+
+          
+            <div class="nav-links" id="mobileNav">
+                <a href="../index.html" class="Homepage"> <!-- prepping to style nav links into buttons -->
+                    <img src="../Portfolio/files/home_button.png" alt="Home button" class="button home" />
+                </a>
+                    <a href="../Portfolio/artwork.html" class="Portfolio">
+                    <img src="../Portfolio/files/illustration_light.png" alt="Portfolio button" class="button portfolio" />
+                </a>
+                
+            </div>
+        </nav>
+                              <!-- Favy  -->
+
+        <div class="about-container">
+            <div class="favy-img">
+              <img src="aboutimages/favy.png" alt="favy" />
+            </div>
+
+                      <!-- Decorative Flowers -->
+
+            <div class="flowers">
+              <img src="aboutimages/left_flower.png" alt="flower left" class="flower-left" />
+              <!-- <img src="aboutimages/right_flower.png" alt="flower right" class="flower-right" /> -->
+            </div>
+        </div>
+
+          <div class="info-img">
+              <img src="aboutimages/info.png" alt="info" />
+            </div>
+          
+        
+          
+          <!-- About Me! Title -->
+          <div class="about-title">
+            <img src="aboutimages/about_me.png" alt="about-me" />
+          </div>
+
+          <div class="contact-section">
+            <!-- Contact Title -->
+            <div class="contact-title">
+              <img src="aboutimages/contact.png" alt="contact" />
+            </div>
+          
+            <!-- Contact buttons -->
+            <div class="social-buttons">
+              <a href="https://www.tiktok.com/@favy._" target="_blank">
+                <img src="aboutimages/tiktok.png" alt="TikTok" class="social-icon" />
+              </a>
+              <a href="https://www.instagram.com/fvnm.art/" target="_blank">
+                <img src="aboutimages/instagram.png" alt="Instagram" class="social-icon" />
+              </a>
+              <a href="https://www.linkedin.com/in/faven-mulugeta-41a999277" target="_blank">
+                <img src="aboutimages/linkedin.png" alt="LinkedIn" class="social-icon" />
+              </a>
+              <a href="mailto:fvnmaart@gmail.com">
+                <img src="aboutimages/email.png" alt="Email" class="social-icon" />
+              </a>
+            </div>
+          
+            <!-- Contact form -->
+            <div class="container">
+              <form action="https://formspree.io/f/xldnedkw" method="POST">
+                <div class="row">
+                  <label for="name" class="label-lg">
+                      <img src="aboutimages/name_text.png" alt='name text' class="name text" />
+                  </label>
+                  <input type="text" name="name" class="input-lg" required />
+        
+                  <label for="email" class="label-lg">
+                      <img src="aboutimages/email_text.png" alt='email text' class="email text" />
+                  </label>
+                  <input type="email" name="email" class="input-lg" required />
+                </div>
+        
+                <div class="message-area">
+                  <label for="message">
+                      <img src="aboutimages/your_message.png" alt='message text' class="message text" />
+                  </label>
+
+                  <textarea
+                    class="message"
+                    name="message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="button-bar">
+                  <button class="btn-dark" type="submit">
+                      <img src="aboutimages/send.png" alt='send text' class="send text" />
+                  </button>
+                </div>
+                <input
+                  name="subject"
+                  type="hidden"
+                  value="New submission from {{name}}"
+                />
+              </form>
+          </div>
+
+        </div>
+
+
+        
+
+
+
+        
+
+
+
+
+
+        <!--insert linked in, social media, etc-->
+
+        <!--For about, a picture will be on the left side, a column full of info as such, and -->
+        
+    </body>
+    <script>
+      // hamburger
+      const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+
+  hamburger.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+});
+
+    </script>
+</html>
